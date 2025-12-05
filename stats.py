@@ -19,4 +19,21 @@ def get_character_count(file_contents):
         else:
             characters[letter] = 1
 
-    print(characters)
+    return characters
+
+def sort_character_count(characters):
+    sorted_list = []
+
+    def sort_on(items):
+        return items["num"]
+
+    for character in characters:
+        count = characters[character]
+
+        if character.isalpha() == True:
+            entry = {"char": character, "num": count}
+            sorted_list.append(entry)
+
+    sorted_list.sort(reverse=True, key=sort_on)
+
+    return sorted_list
